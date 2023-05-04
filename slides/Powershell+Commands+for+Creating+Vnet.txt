@@ -1,0 +1,10 @@
+$rgName = "RG-USW2-Sub-HR" 
+$location = "West US 2" 
+# Create a resource group New-AzResourceGroup -Name $rgName -Location $location # Create the virtual network $vnet1 = New-AzVirtualNetwork -Name “ServerVnet01" -ResourceGroupName $rgName -Location $location -AddressPrefix "10.1.0.0/16" 
+
+# Create a subnet, and add it to the new virtual network 
+Add-AzVirtualNetworkSubnetConfig -Name "subnet1" -AddressPrefix "10.1.1.0/24" –VirtualNetwork
+
+Add-AzVirtualNetworkSubnetConfig -Name "subnet1" ` -AddressPrefix "10.1.1.0/24" ` -VirtualNetwork $vnet1 
+
+ $vnet1 Set-AzVirtualNetwork -VirtualNetwork $vnet1 

@@ -1,0 +1,21 @@
+<AntimalwareConfig>
+    <AntimalwareEnabled>true</AntimalwareEnabled> 
+    <RealtimeProtectionEnabled>true</RealtimeProtectionEnabled>     
+    <ScheduledScanSettings isEnabled="true" day="7" time="120" scanType="Quick"/> 
+    <Exclusions> 
+        <Extensions>
+<Extension>.ext1</Extension>
+<Extension>.ext2</Extension>
+        </Extensions>
+        <Paths>
+<Path>c:\excluded-path-1</Path>
+<Path>c:\excluded-path-2</Path>
+        </Paths>
+        <Processes>
+<Process>excludedproc1.exe</Process>
+<Process>excludedproc2.exe</Process>
+        </Processes>
+    </Exclusions>
+    <Monitoring>ON</Monitoring>
+    <StorageAccountName>contosostorage</StorageAccountName>
+</AntimalwareConfig>

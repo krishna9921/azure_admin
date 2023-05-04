@@ -1,0 +1,19 @@
+Read the documentation @ https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-blobs?toc=/azure/storage/blobs/toc.json
+
+azcopy login
+azcopy login --tenant-id "" 
+azcopy copy "C:\AZ\*" "https://sourcestorageaccountdemo.blob.core.windows.net/testfolder"
+
+--recursive flag to upload files in all sub-directories. 
+
+azcopy copy "C:\AZ\*" "https://sourcestorageaccountdemo.blob.core.windows.net/testfolder" --recursive
+Create a container
+
+azcopy make "https://deststorageaccountdemo.blob.core.windows.net/demotarget"
+
+Copy a blob to another storage account
+
+azcopy copy 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path><SAS-token>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<blob-path>'
+
+azcopy copy "https://sourcestorageaccountdemo.blob.core.windows.net/testfolder/?sv=2019-12-12&ss=b&srt=sco&sp=rwdlacx&se=2020-10-26T11:15:39Z&st=2020-10-26T03:15:39Z&spr=https&sig=W%2BAQx8ZCTshElQoxludjp8T6Uuz4kx1%2FgCnEtx8bVPg%3D" "https://deststorageaccountdemo.blob.core.windows.net/demotarget" --recursive
+

@@ -1,0 +1,7 @@
+az group create --name 'MyResourceGroup' --location 'East US 2'
+az network vnet create -g MyResourceGroup -n MyVnet
+az network vnet create -g MyResourceGroup -n MyVnet --address-prefix 10.0.0.0/16 \
+    --subnet-name MySubnet --subnet-prefix 10.0.0.0/24
+
+
+az group delete --name MyResourceGroup

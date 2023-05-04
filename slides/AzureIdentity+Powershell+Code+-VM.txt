@@ -1,0 +1,15 @@
+$Response = invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -method get -Headers @{Metadata="true"}
+$content = $response.Content | ConvertFrom-Json
+$KeyVaultToken =$Content.access_token
+
+
+If Linux VM
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https:%3A%2F%2Fvault.azure.net' -H Metadata:true
+curl https://<Your-keyvault-url>/secrets/<secret-name>?api-version=2016-10-01 "Authorization:Bearer<Access Token>"
+
+
+
+(invoke-WebRequest -Uri https://<Your-keyvault-url>/secrets/secretsName?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).Content
+
+
+(invoke-WebRequest -Uri https://demo-managed-identity.vault.azure.net/secrets/FBAuthsecret?api-version=2016-10-01 -Method GET -Headers @{Authorization="Bearer $KeyVaultToken"}).Content

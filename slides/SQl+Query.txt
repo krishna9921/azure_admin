@@ -1,0 +1,5 @@
+CREATE USE [PADDY@LEARNINMYLAB.COM] FROM EXTERNAL PROVIDER;
+
+Grant alter any user to [PADDY@LEARNINMYLAB.COM];
+
+alter role db_owner add member [PADDY@LEARNINMYLAB.COM]
